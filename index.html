@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Hemanth Vundavilli</title>
+  <meta name="description" content="Hemanth Vundavilli — Assistant Professor of Coastal Oceanography and Systems Science at Coastal Carolina University. CoastalTIDES Lab: coastal morphodynamics, river deltas, sediment transport, Delft3D.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero-slides" aria-label="Fieldwork photographs">
+    <div class="slide s1 on"></div>
+    <div class="slide s2"></div>
+    <div class="slide s3"></div>
+    <div class="slide s4"></div>
+    <div class="slide s5"></div>
+    <span class="slide-caption on">Wax Lake Delta, Louisiana</span>
+    <span class="slide-caption">Port Royal Sound, South Carolina</span>
+    <span class="slide-caption">Mangrove estuary, Aotearoa New Zealand</span>
+    <span class="slide-caption">Instrument deployment</span>
+    <span class="slide-caption">Winyah Bay, South Carolina</span>
+    <div class="scrim"></div>
+    <div class="hero-text">
+      <div class="site-name">Hemanth Vundavilli</div>
+      <div class="site-sub">CoastalTIDES Lab · Coastal Oceanography · Coastal Carolina University</div>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Main">
+    <div class="nav-inner">
+      <a href="index.html" class="active">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="mentorship.html">Mentorship</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Welcome</p>
+        <p class="lede">
+          At the coast, rivers meet the tide — and together they move the
+          sediment that builds deltas, floodplains, marshes, and shorelines.
+          I study how that happens: how water and sediment travel through
+          coastal systems, how storms and vegetation reshape them, and what
+          that means for the people and ecosystems that depend on them.
+        </p>
+        <p style="margin-top:16px;">
+          I'm an assistant professor of Coastal Oceanography and Systems
+          Science in the Department of Marine Science at Coastal Carolina
+          University, where I lead the CoastalTIDES Lab. We pair Delft3D numerical
+          modeling with field observations — ADCPs, tide gauges, and plenty of
+          time on the water.
+        </p>
+        <p class="contact-line">
+          207H Smith Science · Conway, South Carolina<br>
+          <a href="mailto:vvundavil@coastal.edu">vvundavil@coastal.edu</a> ·
+          <a href="https://scholar.google.com/citations?user=FMsnJtsAAAAJ&amp;hl=en">Google Scholar</a>
+        </p>
+      </div>
+      <div class="portrait"><span>Portrait photo<br>(images/portrait.jpg)</span></div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Background</p>
+      <h2>A short version of the long story</h2>
+      <p>
+        Before Coastal Carolina, I was a postdoctoral researcher at Louisiana
+        State University, jointly appointed in Civil &amp; Environmental
+        Engineering and Oceanography &amp; Coastal Sciences, working on nature-based
+        solutions for coastal resilience with the U.S. Army Engineer Research
+        and Development Center. My Ph.D. is in Earth Sciences from the
+        University of Waikato, New Zealand, where I studied how buoyant river
+        plumes interact with mangrove forests. Before that: a dual
+        B.Tech/M.Tech in Naval Architecture and Ocean Engineering from IIT
+        Madras, with research stops in Estonia along the way.
+      </p>
+      <p>
+        We're always looking for curious students — see
+        <a href="mentorship.html">Mentorship</a> if you'd like to join.
+      </p>
+    </section>
+
+    <section>
+      <p class="eyebrow">Recent</p>
+      <h2>Latest</h2>
+      <div class="news-item">
+        <p class="date">2025 · Award</p>
+        <h3>Pritchard Award, Coastal &amp; Estuarine Research Federation</h3>
+      </div>
+      <div class="news-item">
+        <p class="date">Aug 2025 · New chapter</p>
+        <h3>The CoastalTIDES Lab opens at Coastal Carolina University</h3>
+      </div>
+      <p style="margin-top:20px;"><a href="news.html">All news &rarr;</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 Hemanth Vundavilli · CoastalTIDES Lab</span>
+      <span>
+        <a href="https://scholar.google.com/citations?user=FMsnJtsAAAAJ&amp;hl=en">Google Scholar</a> ·
+        <a href="mailto:vvundavil@coastal.edu">vvundavil@coastal.edu</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var slides = document.querySelectorAll('.hero-slides .slide');
+      var caps = document.querySelectorAll('.hero-slides .slide-caption');
+      if (slides.length < 2) return;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return; // stay on first slide
+      var i = 0;
+      setInterval(function () {
+        slides[i].classList.remove('on');
+        caps[i].classList.remove('on');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('on');
+        caps[i].classList.add('on');
+      }, 5500);
+    })();
+  </script>
+
+</body>
+</html>
