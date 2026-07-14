@@ -1,48 +1,31 @@
-# hemanthvundavilli — personal academic site
+# The CoastalTIDES Lab website
 
-Static site (plain HTML/CSS, no build step). Pages: index, research,
-publications, teaching, mentorship, news, contact. Shared stylesheet: `style.css`.
+## The LaTeX analogy — how this site works
 
-## Deploy to GitHub Pages (free, at hvundavilli.github.io)
+| LaTeX          | This site      | You touch it?          |
+|----------------|----------------|------------------------|
+| your .tex file | **content.js** | **YES — only this**    |
+| .cls / .sty    | render.js, style.css, the 7 .html files | never |
+| figures/       | images/        | upload photos here     |
 
-1. Create a **public** repo named exactly `<your-username>.github.io`
-   (e.g. `hvundavilli.github.io`).
-2. Push these files to the repo root (index.html must be at the top level):
-   ```
-   git init
-   git add .
-   git commit -m "Initial site"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<your-username>.github.io.git
-   git push -u origin main
-   ```
-3. On GitHub: Settings → Pages → Source: "Deploy from a branch" → main / root.
-   The site goes live at `https://<your-username>.github.io` within a minute or two.
+Every word on the site lives in `content.js`. To change anything:
+GitHub → click `content.js` → pencil icon → edit → Commit changes.
+The site rebuilds itself in ~1 minute. That's the entire workflow.
 
-## Adding your photo
+Common edits (all inside content.js, each section is labeled):
+- New paper: copy a { ... } block in `publications`, paste at top, edit.
+- News item: copy a block in `news`, paste at TOP (newest first).
+- New student: copy a block in `mentorship.people`.
+- Show a student photo: upload the .jpg to `images/people/` (Add file →
+  Upload files), then change their `photo: null` to
+  `photo: "images/people/filename.jpg"`.
+- Site name / your title line: `meta` at the very top.
 
-Put a headshot at `images/portrait.jpg`. Home slideshow photos go at `images/slide1.jpg`–`slide5.jpg` (wide/landscape shots work best; ~1600px wide). Captions are in index.html — edit the `slide-caption` spans to match your photos.
+Photos that need no code change at all:
+- Home slideshow: upload `images/slide1.jpg` … `slide5.jpg`
+- Your portrait: upload `images/portrait.jpg`
 
-Also and field photos at `images/field1.jpg`–`field4.jpg`, then in `index.html` replace:
-```html
-<div class="portrait"><span>Portrait photo...</span></div>
-```
-with:
-```html
-<div class="portrait"><img src="images/portrait.jpg" alt="Hemanth Vundavilli"></div>
-```
-
-## Custom domain later (www.hemanthvundavilli.com)
-
-The domain itself costs ~$10–12/yr (Cloudflare, Porkbun, Namecheap). Once bought:
-1. Repo Settings → Pages → Custom domain → enter `www.hemanthvundavilli.com`
-   (GitHub creates a `CNAME` file in the repo).
-2. At your registrar, add a DNS **CNAME** record: `www` → `<your-username>.github.io`.
-3. Optionally add A records for the apex domain (185.199.108.153, .109., .110., .111.).
-4. Check "Enforce HTTPS" once the certificate is issued (can take ~1 hr).
-
-## Updating content
-
-- **New publication**: add an `<li>` in `publications.html` following the existing pattern.
-- **News item**: add a `news-item` div at the top of the list in `news.html`.
-- **Courses/students**: rows in the `chart-table` tables in `teaching.html` / `mentorship.html`.
+## First deploy
+Upload everything in this folder (including the images folder) to a public
+repo named `<username>.github.io` via "uploading an existing file", commit,
+and the site is live at https://<username>.github.io
