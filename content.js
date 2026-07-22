@@ -43,7 +43,7 @@ window.SITE = {
       { page: "collaborators", label: "Collaborators", href: "collaborators.html" },
       { page: "team",          label: "Team",          href: "team.html" },
       { page: "publications",  label: "Publications",  href: "publications.html" },
-      { page: "outreach",      label: "Outreach",      href: "outreach.html" },
+      { page: "outreach",      label: "News",      href: "outreach.html" },
       { page: "life",          label: "Lab Life",      href: "life.html" },
       { page: "join",          label: "Join Us",       href: "join.html" }
     ]
@@ -72,7 +72,7 @@ window.SITE = {
     ],
 
     intro: "The CoastalTIDES Lab — <strong>Transport, Inundation, and Dynamics in Emerging Shorelines</strong> — studies how water and sediment move through the coastal zone, and how deltas, marshes, and estuaries are built, held together, or worn away. We work across numerical modeling, field observations, and remote sensing.",
-    cloudLead: "Our research, in a word cloud:",
+    cloudLead: "Our research, in a word cloud",
 
     wordcloud: {
       // Prefer your own image? Upload it to images/home/ and set:
@@ -445,7 +445,7 @@ window.SITE = {
       // TODO: add the two project titles here
       date: "July 2026",
       title: "Horry County Higher Education Commission grants",
-      text: "Awarded two HCHEC grants supporting coastal research at CCU — one as Principal Investigator and one as co-Principal Investigator."
+      text: "CoastalTIDES lab receives two HCHEC grants. "
     },
     {
       date: "March 2026",

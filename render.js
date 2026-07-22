@@ -62,7 +62,7 @@
   }
 
   var titles = { home: 'Home', research: 'Research', collaborators: 'Collaborators',
-    team: 'Team', publications: 'Publications', outreach: 'Outreach',
+    team: 'Team', publications: 'Publications', outreach: 'News',
     life: 'Lab Life', join: 'Join Us' };
   if (titles[page]) document.title = titles[page] + ' | ' + S.meta.siteName;
 
@@ -370,7 +370,7 @@
 
   /* ================= OUTREACH ================= */
   if (page === 'outreach') {
-    var nw = section('Updates', 'Outreach & news');
+    var nw = section('Updates', 'News');
     (S.outreach || []).forEach(function (n) {
       var d = el('div', 'news-item');
       d.appendChild(el('h3', 'stamp', esc(n.date) + ' <span class="bar">|</span> ' + n.title));
