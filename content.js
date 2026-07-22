@@ -311,7 +311,7 @@ window.SITE = {
 
     piTitle: "Principal Investigator",
     pi: {
-      photo: "images/team/Hemanth.jpg",
+      photo: "images/team/hemanth_vundavilli.jpg",
       name: "Hemanth Vundavilli, Ph.D.",
       role: "Assistant Professor of Coastal Oceanography and Systems Science",
       dept: "Department of Marine Science, Coastal Carolina University",
@@ -326,7 +326,7 @@ window.SITE = {
     currentTitle: "Current Students",
     current: [
       {
-        photo: "images/team/Abigail_belcher.png",
+        photo: "images/team/abigail_belcher.png",
         name: "Abigail Belcher",
         role: "Ph.D. student · incoming Fall 2026",
         education: "B.S. Elmira College, New York (2026)",
@@ -334,7 +334,7 @@ window.SITE = {
         topic: "Delta morphodynamics and river–floodplain connectivity"
       },
       {
-        photo: "images/team/Jonathon-riley.jpeg",
+        photo: "images/team/jonathon-riley.jpeg",
         name: "Jonathon A. Riley",
         role: "Undergraduate researcher · Spring 2026",
         education: "",
@@ -342,7 +342,7 @@ window.SITE = {
       },
       {
         // TODO: this is still Isabella's photo — swap in Luke's
-        photo: "images/team/Isabella-Hicks.jpeg",
+        photo: "images/team/isabella-hicks.jpeg",
         name: "Luke Dykema",
         role: "Undergraduate researcher · Spring 2026",
         education: "",
@@ -350,7 +350,7 @@ window.SITE = {
       },
       {
         // TODO: this is still Isabella's photo — swap in Cameron's
-        photo: "images/team/Isabella-Hicks.jpeg",
+        photo: "images/team/isabella-hicks.jpeg",
         name: "Cameron A. Marshall",
         role: "Undergraduate researcher · Spring 2026",
         education: "",
@@ -361,7 +361,7 @@ window.SITE = {
     pastTitle: "Past Students",
     past: [
       {
-        photo: "images/team/Isabella-Hicks.jpeg",
+        photo: "images/team/isabella-hicks.jpeg",
         name: "Isabella Hicks",
         role: "Undergraduate researcher · Fall 2025",
         education: "",
@@ -369,7 +369,7 @@ window.SITE = {
         after: ""
       },
       {
-        photo: "images/team/Frank-Bussott.jpeg",
+        photo: "images/team/frank-bussott.jpeg",
         name: "Frank Bussott",
         role: "Undergraduate researcher · Summer 2024, LSU",
         education: "",
@@ -377,7 +377,7 @@ window.SITE = {
         after: "Associate Professional at Team Royal"
       },
       {
-        photo: "images/team/Tyria-zanders.jpeg",
+        photo: "images/team/tyria-zanders.jpeg",
         name: "Tyria M. Zanders",
         role: "Undergraduate researcher · Summer 2023, LSU",
         education: "",
@@ -501,15 +501,15 @@ window.SITE = {
     title: "Life in the CoastalTIDES Lab",
     intro: "Fieldwork, instruments, students, and the occasional new friend — what the work actually looks like.",
     photos: [
-      { src: "images/join/bird_pic.PNG", caption: "Sharing the shoreline<br>(Gulf of Mexico)" },
-      { src: "images/join/ADCP_deployment.PNG", caption: "ADCP deployment in the Gulf<br>(Gulf of Mexico)" },
-      { src: "images/join/Friends.jpg", caption: "Making friends during fieldwork<br>(Winyah Bay, SC)<br>(Pic credit: Dr. April Abbott)" },
-      { src: "images/join/Stream_table_test.PNG", caption: "Stream table demonstration<br>(GCOS Stem Day, SC)" },
-      { src: "images/join/Mangroves.JPG", caption: "Vundavilli in the middle of a Nature-based solution (NbS)<br>(Firth of Thames, New Zealand)" },
-      { src: "images/join/Water_level_sensor.png", caption: "Installation of water level sensor as part of Colby College collaborative<br>(Allen Island, Maine)" },
-      { src: "images/join/Groundwater_well.PNG", caption: "Groundwater well deployment<br>(Waties Island, SC)" },
-      { src: "images/join/coastal_supervisors.PNG", caption: "Our fieldwork comes with an audience<br>(Gulf of Mexico, USA)" },
-      { src: "images/join/Student_vibracoring.PNG", caption: "MSCI 304L students admiring 1 m long sediment vibracore<br>(Garden City, Myrtle Beach)" },
+      { src: "images/join/bird_pic.png", caption: "Sharing the shoreline<br>(Gulf of Mexico)" },
+      { src: "images/join/adcp_deployment.png", caption: "ADCP deployment in the Gulf<br>(Gulf of Mexico)" },
+      { src: "images/join/friends.jpg", caption: "Making friends during fieldwork<br>(Winyah Bay, SC)<br>(Pic credit: Dr. April Abbott)" },
+      { src: "images/join/stream_table_test.png", caption: "Stream table demonstration<br>(GCOS Stem Day, SC)" },
+      { src: "images/join/mangroves.jpg", caption: "Vundavilli in the middle of a Nature-based solution (NbS)<br>(Firth of Thames, New Zealand)" },
+      { src: "images/join/water_level_sensor.png", caption: "Installation of water level sensor as part of Colby College collaborative<br>(Allen Island, Maine)" },
+      { src: "images/join/groundwater_well.png", caption: "Groundwater well deployment<br>(Waties Island, SC)" },
+      { src: "images/join/coastal_supervisors.png", caption: "Our fieldwork comes with an audience<br>(Gulf of Mexico, USA)" },
+      { src: "images/join/student_vibracoring.png", caption: "MSCI 304L students admiring 1 m long sediment vibracore<br>(Garden City, Myrtle Beach)" },
     ]
   }
 };
