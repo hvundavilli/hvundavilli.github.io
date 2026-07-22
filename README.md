@@ -1,31 +1,43 @@
 # The CoastalTIDES Lab website
 
-## The LaTeX analogy — how this site works
+Edit **content.js** only. render.js, worldmap.js, style.css and the .html
+shells are the "document class". Save, refresh the browser, done.
+Comments in content.js use // (LaTeX's %).
 
-| LaTeX          | This site      | You touch it?          |
-|----------------|----------------|------------------------|
-| your .tex file | **content.js** | **YES — only this**    |
-| .cls / .sty    | render.js, style.css, the 7 .html files | never |
-| figures/       | images/        | upload photos here     |
+## Pages
+Home · Research · Collaborators · Team · Publications · Outreach · Lab Life · Join Us
 
-Every word on the site lives in `content.js`. To change anything:
-GitHub → click `content.js` → pencil icon → edit → Commit changes.
-The site rebuilds itself in ~1 minute. That's the entire workflow.
+The menu is built from `meta.nav` in content.js — adding a tab later means
+one line there plus a copy of any .html file with `data-page` changed.
 
-Common edits (all inside content.js, each section is labeled):
-- New paper: copy a { ... } block in `publications`, paste at top, edit.
-- News item: copy a block in `news`, paste at TOP (newest first).
-- New student: copy a block in `mentorship.people`.
-- Show a student photo: upload the .jpg to `images/people/` (Add file →
-  Upload files), then change their `photo: null` to
-  `photo: "images/people/filename.jpg"`.
-- Site name / your title line: `meta` at the very top.
+Old URLs still redirect: about/mentorship → team, contact → join,
+news → outreach, teaching → home.
 
-Photos that need no code change at all:
-- Home slideshow: upload `images/slide1.jpg` … `slide5.jpg`
-- Your portrait: upload `images/portrait.jpg`
+## Sizes and fonts (style.css, top of file)
+All sizes live in the `--fs-*` variables. Change one and the whole site
+follows. Three typefaces only: Newsreader (headings), Archivo (body),
+IBM Plex Mono (labels). Never add a global `* { font-family: ... }` rule.
+Header band height is `meta.headerHeight` in content.js.
 
-## First deploy
-Upload everything in this folder (including the images folder) to a public
-repo named `<username>.github.io` via "uploading an existing file", commit,
-and the site is live at https://<username>.github.io
+## Photo folders (images/)
+    images/home/       optional word-cloud image
+    images/team/       PI portrait + student headshots
+    images/research/   one photo per project
+    images/join/       Lab Life gallery photos
+
+Filenames must match content.js EXACTLY — including .jpg vs .jpeg vs .PNG
+and capitalisation. A missing photo just shows a placeholder panel.
+
+## Word cloud
+Spiral placement: the biggest term sits at the centre and the rest spiral
+outward. Terms and weights (1–5) are in `home.wordcloud.terms`.
+Tuning knobs are inside render.js: `0.62 * th` (packing tightness),
+`* 1.9` (how wide the cloud spreads), `idx % 3 === 0` (how many words are
+turned 90°), and `seed` (change it for a different arrangement).
+
+## Common edits
+- New paper: copy a { } block in publications.published, paste at TOP
+- Outreach item: copy a { } block in outreach, newest at the TOP
+- New student: copy a { } block in team.current
+- Student graduates: move their block to team.past, fill in "after"
+- New gallery photo: add a { src, caption } line in life.photos

@@ -1,116 +1,394 @@
 /* =====================================================================
    content.js — THE ONLY FILE YOU EVER EDIT (your ".tex" file)
    =====================================================================
-   Everything on the website is written here. The .html files, style.css,
-   and render.js are the "document class" — never touch them.
+   Everything on the website is written here. The .html shells,
+   render.js, worldmap.js and style.css are the "document class".
 
-   Rules of thumb:
-   - Text goes inside quotes: "like this".
-   - Items in lists are separated by commas. Copy a whole { ... } block
-     to add a new paper / student / news item.
-   - You can use simple HTML inside text: <em>italics</em>,
-     <strong>bold</strong>, <a href="URL">links</a>, &ndash; for –.
-   - After editing: Commit changes on GitHub. Site updates in ~1 minute.
+   - Text goes inside quotes. List items separated by commas.
+   - Simple HTML allowed: <em>..</em>, <strong>..</strong>,
+     <a href="URL">..</a>, &ndash; for –.
+   - Comments: // like this (the LaTeX % equivalent).
+   - Any field left as "" or null is simply not shown.
+   - After editing: save and refresh (or Commit, once on GitHub).
+
+   PHOTOS live in subfolders:
+     images/home/      homepage art (optional word-cloud image)
+     images/team/      PI portrait + student headshots
+     images/research/  one photo per project
+     images/join/      photos for the Lab Life gallery
    ===================================================================== */
 
 window.SITE = {
 
-  /* ------------------------------------------------------------------
-     SITE IDENTITY  (header on every page, footer, browser tab)
-     ------------------------------------------------------------------ */
+  /* ---------------- SITE IDENTITY (header, footer, tab) ------------- */
   meta: {
-    siteName: "The CoastalTIDES Lab",
-    siteSub: "Hemanth Vundavilli · Coastal Oceanography · Coastal Carolina University",
-    footerName: "Hemanth Vundavilli · CoastalTIDES Lab",
+    siteName: "The CoastalTIDES Lab",          // used for browser tabs and the footer
+    // the big line inside the header band on the HOME page:
+    headerTitle: "Welcome to the CoastalTIDES Lab at Coastal Carolina University",
+    // ...and on every other page (no "Welcome to" repeated everywhere):
+    innerHeaderTitle: "The CoastalTIDES Lab",
+    // height of that header band, in pixels — raise or lower this number
+    headerHeight: 320,
+    siteSub: "Coastal Oceanography || Coastal Carolina University",
+    footerName: "The CoastalTIDES Lab · Department of Marine Science, Coastal Carolina University",
     email: "vvundavil@coastal.edu",
-    scholar: "https://scholar.google.com/citations?user=FMsnJtsAAAAJ&hl=en"
+    scholar: "http://scholar.google.com/citations?user=FMsnJtsAAAAJ&hl=en&oi=ao",
+
+    // THE MENU. Order here = order on the site. The menu is built from
+    // this list, so adding a tab later = one line here + a copy of any
+    // .html file with data-page changed to match.
+    nav: [
+      { page: "home",          label: "Home",          href: "index.html" },
+      { page: "research",      label: "Research",      href: "research.html" },
+      { page: "collaborators", label: "Collaborators", href: "collaborators.html" },
+      { page: "team",          label: "Team",          href: "team.html" },
+      { page: "publications",  label: "Publications",  href: "publications.html" },
+      { page: "outreach",      label: "Outreach",      href: "outreach.html" },
+      { page: "life",          label: "Lab Life",      href: "life.html" },
+      { page: "join",          label: "Join Us",       href: "join.html" }
+    ]
   },
 
-  /* ------------------------------------------------------------------
-     HOME PAGE SLIDESHOW CAPTIONS
-     Photos go at images/slide1.jpg ... slide5.jpg (appear automatically).
-     ------------------------------------------------------------------ */
-  slides: [
-    "Wax Lake Delta, Louisiana",
-    "Port Royal Sound, South Carolina",
-    "Mangrove estuary, Aotearoa New Zealand",
-    "Instrument deployment",
-    "Winyah Bay, South Carolina"
-  ],
-
-  /* ------------------------------------------------------------------
-     HOME PAGE
+  /* ---------------- HOME PAGE ---------------------------------------
+     Just the welcome and the word cloud.
+     The acronym below is rendered as: Transport, Inundation, and
+     Dynamics in Emerging Shorelines — with the T, I, D, E, S underlined.
      ------------------------------------------------------------------ */
   home: {
-    lede: "At the coast, rivers meet the tide — and together they move the sediment that builds deltas, floodplains, marshes, and shorelines. We study how that happens: how water and sediment travel through coastal systems, how storms and vegetation reshape them, and what that means for the people and ecosystems that depend on them.",
-    intro: "The CoastalTIDES Lab is led by Hemanth Vundavilli, assistant professor of Coastal Oceanography and Systems Science in the Department of Marine Science at Coastal Carolina University. We pair Delft3D numerical modeling with field observations — ADCPs, tide gauges, and plenty of time on the water.",
-    contactLine: "207H Smith Science · Conway, South Carolina",
-    aboutTitle: "A short version of the long story",
-    about: [
-      "Before Coastal Carolina, Hemanth was a postdoctoral researcher at Louisiana State University, jointly appointed in Civil & Environmental Engineering and Oceanography & Coastal Sciences, working on nature-based solutions for coastal resilience with the U.S. Army Engineer Research and Development Center. His Ph.D. is in Earth Sciences from the University of Waikato, New Zealand, on how buoyant river plumes interact with mangrove forests. Before that: a dual B.Tech/M.Tech in Naval Architecture and Ocean Engineering from IIT Madras, with research stops in Estonia along the way.",
-      "We're always looking for curious students — see <a href='mentorship.html'>Mentorship</a> if you'd like to join."
+    welcomeSmall: "Welcome to",
+    welcomeBig: "CoastalTIDES",
+
+    // each entry underlines its first letter; "plain" parts are joined as-is
+    acronym: [
+      { word: "Transport" },
+      { plain: ", " },
+      { word: "Inundation" },
+      { plain: ", and " },
+      { word: "Dynamics" },
+      { plain: " in " },
+      { word: "Emerging" },
+      { plain: " " },
+      { word: "Shorelines" }
     ],
-    latest: [
-      { date: "2025 · Award", title: "Pritchard Award, Coastal & Estuarine Research Federation" },
-      { date: "Aug 2025 · New chapter", title: "The CoastalTIDES Lab opens at Coastal Carolina University" }
-    ]
+
+    intro: "The CoastalTIDES Lab — <strong>Transport, Inundation, and Dynamics in Emerging Shorelines</strong> — studies how water and sediment move through the coastal zone, and how deltas, marshes, and estuaries are built, held together, or worn away. We work across numerical modeling, field observations, and remote sensing.",
+    cloudLead: "Our research, in a word cloud:",
+
+    wordcloud: {
+      // Prefer your own image? Upload it to images/home/ and set:
+      //   image: "images/home/wordcloud.png"
+      image: null,
+      caption: "",
+      // weight 1–5 sets the size. Add or remove terms freely.
+      terms: [
+        // --- core themes (biggest) ---
+        { t: "sediment transport", w: 5 },
+        { t: "river deltas", w: 5 },
+        { t: "morphodynamics", w: 5 },
+        { t: "river plumes", w: 5 },
+        // --- major topics ---
+        { t: "Delft3D", w: 4 },
+        { t: "estuaries", w: 4 },
+        { t: "floodplain connectivity", w: 4 },
+        { t: "numerical modeling", w: 4 },
+        { t: "mangroves", w: 4 },
+        { t: "remote sensing", w: 4 },
+        { t: "water quality", w: 4 },
+        { t: "salt marshes", w: 4 },
+        { t: "buoyant plumes", w: 4 },
+        // --- processes ---
+        { t: "estuarine circulation", w: 3 },
+        { t: "backwater dynamics", w: 3 },
+        { t: "saltwater intrusion", w: 3 },
+        { t: "salt wedge", w: 3 },
+        { t: "stratification", w: 3 },
+        { t: "buoyancy-driven flow", w: 3 },
+        { t: "plume fronts", w: 3 },
+        { t: "tidal asymmetry", w: 3 },
+        { t: "wave–current interaction", w: 3 },
+        { t: "storm surge", w: 3 },
+        { t: "coastal flooding", w: 3 },
+        { t: "coastal erosion", w: 3 },
+        { t: "sea-level rise", w: 3 },
+        { t: "channel avulsion", w: 3 },
+        { t: "delta lobes", w: 3 },
+        { t: "marsh accretion", w: 3 },
+        { t: "vegetation drag", w: 3 },
+        { t: "suspended sediment", w: 3 },
+        { t: "cohesive sediment", w: 3 },
+        { t: "tides", w: 3 },
+        { t: "hydrodynamics", w: 3 },
+        { t: "field observations", w: 3 },
+        // --- tools and data ---
+        { t: "ADCP", w: 2 },
+        { t: "CTD profiling", w: 2 },
+        { t: "tide gauges", w: 2 },
+        { t: "moorings", w: 2 },
+        { t: "ROMS", w: 2 },
+        { t: "Sentinel-2", w: 2 },
+        { t: "Landsat", w: 2 },
+        { t: "SAR imagery", w: 2 },
+        { t: "satellite imagery", w: 2 },
+        { t: "bathymetry", w: 2 },
+        { t: "MATLAB", w: 2 },
+        { t: "Python", w: 2 },
+        { t: "high-performance computing", w: 2 },
+        { t: "model calibration", w: 2 },
+        // --- settings and applications ---
+        { t: "tidal flats", w: 2 },
+        { t: "tidal inlets", w: 2 },
+        { t: "mangrove forests", w: 2 },
+        { t: "flocculation", w: 2 },
+        { t: "bed shear stress", w: 2 },
+        { t: "sediment flux", w: 2 },
+        { t: "sediment budgets", w: 2 },
+        { t: "grain size", w: 2 },
+        { t: "deposition", w: 2 },
+        { t: "shoreline change", w: 2 },
+        { t: "turbidity", w: 2 },
+        { t: "mixing", w: 2 },
+        { t: "turbulence", w: 2 },
+        { t: "hydrology", w: 2 },
+        { t: "nature-based solutions", w: 2 },
+        { t: "coastal resilience", w: 3 },
+        { t: "restoration", w: 2 },
+        { t: "wetlands", w: 2 },
+        { t: "tropical cyclones", w: 2 },
+        { t: "Wax Lake Delta", w: 2 },
+        { t: "Winyah Bay", w: 2 },
+        { t: "Port Royal Sound", w: 2 }
+      ]
+    }
   },
 
-  /* ------------------------------------------------------------------
-     RESEARCH PAGE
+  /* ---------------- RESEARCH ----------------------------------------
+     Each project shows as: photo, then TITLE, then the funding line,
+     then the text. Photo: upload to images/research/ and set
+     image: "images/research/filename.jpg". Leave null for a placeholder.
      ------------------------------------------------------------------ */
   research: {
-    intro: "Our work sits where physical oceanography, hydrology, and geomorphology meet. The common thread is transport: how water and sediment move through coastal systems, and how that movement builds, maintains, or erodes the landscapes people depend on. We use process-based numerical models (mainly Delft3D), moored instruments (ADCPs, tide gauges, CTDs), and careful signal analysis of field records.",
+    intro: "At the CoastalTIDES Lab, our work sits where physical oceanography, hydrology, and geomorphology meet. We study how water and sediment move through coastal systems and how those movements build, sustain, or erode the landscapes that protect communities and support ecosystems. Our research combines process-based numerical modeling, field observations, and remote sensing to uncover the processes driving coastal change.",
+
+    currentTitle: "Current projects",
     current: [
+            
       {
-        tag: "Modeling", sub: "River deltas",
-        title: "Floodplain activation and delta building",
-        text: "What happens to a growing delta when its river is reconnected to — or cut off from — its floodplain? Using morphodynamic simulations inspired by the Wax Lake Delta, we track sediment delivery from distinct sources (floodplain, riverbed, new river supply, coastal bed) under river and tidal forcing to understand how connectivity changes what actually builds the delta."
+        image: "images/research/waties.png",
+        funding: "Funding agency: Horry County Higher Education Commission",
+        title: "WATER: WAties Technology, Education, and Research",
+        text: "Building an integrated coastal observing system at Waties Island using LiDAR, acoustic mapping, environmental sensors, and numerical modeling to understand circulation, flooding, sediment transport, and ecosystem change while creating a living laboratory for students and community engagement."
       },
+            
+      //{
+       // image: null,   // images/research/backwater.jpg
+       // funding: "U.S. Army Corps of Engineers",
+       // title: "River–floodplain connectivity in the backwater reach",
+       // text: "Idealized numerical experiments on how floodplain vegetation configuration influences flow exchange and channel dynamics where the river first feels the sea."
+      //},
+     // {
+       // image: null,   // images/research/thin-layer.jpg
+       // funding: "",   // <-- add the funder here
+       // title: "Thin-layer sediment placement on salt marshes",
+        //text: "Can adding a thin layer of sediment help an existing salt marsh keep pace with sea-level rise and improve endangered species habitat? We test this with idealized morphodynamic modeling."
+      //},
       {
-        tag: "Observations", sub: "Port Royal Sound, SC",
-        title: "How estuaries respond to storms",
-        text: "Using moored ADCP and water-level records from Port Royal Sound, we examine how local winds and remote shelf forcing set the water-level and circulation response of a South Carolina estuary during tropical cyclones — including why storms with different track geometries can produce strikingly different responses."
-      },
-      {
-        tag: "Modeling", sub: "Backwater zone",
-        title: "River–floodplain connectivity in the backwater reach",
-        text: "Idealized numerical experiments on how floodplain vegetation configuration influences flow exchange and channel dynamics in the backwater zone of lowland rivers."
-      },
-      {
-        tag: "Modeling", sub: "Restoration",
-        title: "Thin-layer sediment placement on salt marshes",
-        text: "Can adding a thin layer of sediment help existing marshes keep pace with sea-level rise and improve endangered species habitat? We test this with idealized morphodynamic modeling."
-      },
-      {
-        tag: "Estuaries", sub: "Winyah Bay, SC",
+        image: "images/research/winyah_bay.jpg",
+        funding: "Funding agency: Burroughs and Chapin Center for Marine and Wetland Studies (BCCMWS)",   // <-- add the funder here
         title: "The freshwater-to-saltwater transition in Winyah Bay",
         text: "An interdisciplinary exploratory project (co-PI, 2025) on the structure of the fresh–salt transition in Winyah Bay, South Carolina."
+      },
+      
+       {
+        image: "images/research/Parris_island.png",
+        funding: "Funding agency: South Carolina Department of Natural Resources",
+        title: "Optimizing living shoreline designs",
+        text: "Using high-resolution bathymetric and topographic surveys coupled with Delft3D, we investigate how different structure configurations modify waves, currents, and sediment transport across the nearshore, with the aim of identifying designs that enhance sediment retention while minimizing unintended impacts on adjacent shorelines."
+        }, 
+      
+      {
+        image: "images/research/test_delta.png",
+        funding: "Funding agency: U.S. Army Corps of Engineers (ERDC)",
+        title: "Floodplain activation and delta building",
+        text: "What happens to a growing delta when its river is reconnected or cut off from its floodplain? Using morphodynamic simulations inspired by the Wax Lake Delta, we track sediment delivery from distinct sources (such as floodplain, riverbed,  etc) under river and tidal forcing."
       }
+   
+          
+      //{
+        //image: null,   // images/research/salt-intrusion.jpg
+        //funding: "",   // <-- add the funder here
+        //title: "Grain size and saltwater intrusion",
+        //text: "How the size of the sediment on the bed changes where salt penetrates a river-dominated delta, and what that means for deposition patterns."
+      //}
     ],
+
+    pastTitle: "Completed Projects",
     past: [
+      //{
+        //image: null,   // images/research/winyah-bay.jpg
+        //funding: "U.S. Army ERDC · LSU, 2023–2025",
+        //title: "Engineering practices for ecosystem design (DEEDS)",
+        //text: "Developed a Collaborative Ecosystem Design tool to inform the U.S. Army on enhancing coastal resiliency through nature and nature-based solutions."
+      //},
       {
-        tag: "2023–2025", sub: "LSU / ERDC",
-        title: "Engineering practices for ecosystem design (DEEDS)",
-        text: "Developed a Collaborative Ecosystem Design tool to inform the U.S. Army on enhancing coastal resiliency through nature and nature-based solutions. Funded by the U.S. Army Engineer Research and Development Center."
-      },
-      {
-        tag: "Ph.D.", sub: "Waikato, NZ",
+        image: "images/research/Buoyant_river_plumes.png",
+        scale: 0.98,
+        funding: "Funding agency: American Chemical Society & University of Waikato",
         title: "Buoyant river plumes and mangrove vegetation",
-        text: "Three-dimensional Delft3D modeling of how buoyant river plumes interact with mangrove forests — and what that means for sediment transport, deposition, and erosion in tidal environments, including the coalescence of neighboring plumes."
+        text: "Three-dimensional Delft3D modeling to investigate the interaction of buoyant river plumes interact with mangrove forests and consequences for sediment transport, deposition, and erosion in tidal environments"
       },
       {
-        tag: "Contract", sub: "New Zealand",
+        image: "images/research/Lake_tarawera.png",
+        funding: "Funding agency: Bay of Plenty Regional Council, New Zealand",
         title: "Mixing in a shallow temperate lake",
-        text: "Circulation modeling of mixing and transport processes that alter water quality, with the Bay of Plenty Regional Council."
+        text: "Idealized three-dimensional numerical simulations of Lake Tarawera, New Zealand, were used to investigate basin-scale circulation, mixing, and transport processes, with a focus on the influence of Coriolis forcing on water quality."
       }
     ]
   },
 
-  /* ------------------------------------------------------------------
-     PUBLICATIONS
-     To add a paper: copy one { ... } block, paste it at the TOP of the
-     list, edit the text. doiURL can be "" if there isn't one yet.
+  /* ---------------- COLLABORATORS -----------------------------------
+     The map is drawn automatically. Each site below becomes a marker —
+     lat/lon are decimal degrees (negative = south / west). "side" puts
+     the label to the left ("l") or right ("r") of the dot.
+     ------------------------------------------------------------------ */
+  collaborators: {
+    title: "Collaborations (Past and Present)",
+    intro: "The CoastalTIDES Lab has been shaped by a research journey across four continents — from the wave basin in Chennai, to the mangrove estuaries of Aotearoa New Zealand, with collaborations across Europe and the Baltic region along the way, before reaching the deltas of the U.S. Gulf and South Atlantic coasts.",
+    sites: [
+      { name: "Conway, South Carolina", lat: 33.84, lon: -79.05, side: "r" },
+      { name: "Baton Rouge, Louisiana", lat: 30.45, lon: -91.19, side: "l" },
+      //{ name: "Hannover, Germany", lat: 51.16, lon: 10.45, side: "l" },
+      { name: "Tallinn, Estonia", lat: 59.44, lon: 24.75, side: "r" },
+      { name: "Delhi, India", lat: 28.61, lon: 77.21, side: "l" },
+      { name: "Hyderabad, India", lat: 17.38, lon: 78.49, side: "l" },
+      { name: "Chennai, India", lat: 13.08, lon: 80.27, side: "r" },
+      { name: "Hamilton, New Zealand", lat: -37.79, lon: 175.28, side: "l" }
+    ],
+    groups: [
+      {
+        place: "United States",
+        items: [
+          "Burroughs and Chaplin Center for Marine and Wetland Studies",
+          "Louisiana State University: Civil & Environmental Engineering and  Department of Oceanography & Coastal Sciences",
+          "U.S. Army Engineer Research and Development Center (ERDC)",
+          "South Carolina Department of Natural Resources"
+        ]
+      },
+      {
+        place: "New Zealand",
+        items: [
+          "University of Waikato — coastal and estuarine physical processes",
+          "National Institute of Water and Atmospheric Research (NIWA)",
+          "Bay of Plenty Regional Council"
+        ]
+      },
+      {
+        place: "India",
+        items: [
+          "Indian Institute of Technology Madras, Chennai",
+          "Ministry of Earth Sciences, India"
+        ]
+      },
+      {
+        place: "The Baltic",
+        items: [
+          "Tallinn University of Technology, Estonia"
+        ]
+      }
+    ]
+  },
+
+  /* ---------------- TEAM ---------------------------------------------
+     Everyone uses the same row: details left, photo right, same size.
+     Photos live in images/team/ — set the photo: field to the exact
+     filename, including .jpg vs .jpeg and lowercase.
+     ------------------------------------------------------------------ */
+  team: {
+    labels: {
+      education: "Education",
+      topic: "Research Topic",
+      after: "Position post-CoastalTIDES Lab"
+    },
+
+    piTitle: "Principal Investigator",
+    pi: {
+      photo: "images/team/Hemanth.jpg",
+      name: "Hemanth Vundavilli, Ph.D.",
+      role: "Assistant Professor of Coastal Oceanography and Systems Science",
+      dept: "Department of Marine Science, Coastal Carolina University",
+      education: "Ph.D. Earth Sciences, University of Waikato, New Zealand (2023) · B.Tech + M.Tech Naval Architecture and Ocean Engineering, IIT Madras (2016)",
+      topic: "Coastal morphodynamics, river deltas, sediment transport, Delft3D modeling",
+      links: [
+        { label: "Google Scholar", href: "http://scholar.google.com/citations?user=FMsnJtsAAAAJ&hl=en&oi=ao" },
+        { label: "vvundavil@coastal.edu", href: "mailto:vvundavil@coastal.edu" }
+      ]
+    },
+
+    currentTitle: "Current Students",
+    current: [
+      {
+        photo: "images/team/Abigail_belcher.png",
+        name: "Abigail Belcher",
+        role: "Ph.D. student · incoming Fall 2026",
+        education: "B.S. Elmira College, New York (2026)",
+        // TODO: reword once her project is settled
+        topic: "Delta morphodynamics and river–floodplain connectivity"
+      },
+      {
+        photo: "images/team/Jonathon-riley.jpeg",
+        name: "Jonathon A. Riley",
+        role: "Undergraduate researcher · Spring 2026",
+        education: "",
+        topic: "Numerical modeling with Delft3D"
+      },
+      {
+        // TODO: this is still Isabella's photo — swap in Luke's
+        photo: "images/team/Isabella-Hicks.jpeg",
+        name: "Luke Dykema",
+        role: "Undergraduate researcher · Spring 2026",
+        education: "",
+        topic: "Coding and environmental data analysis"
+      },
+      {
+        // TODO: this is still Isabella's photo — swap in Cameron's
+        photo: "images/team/Isabella-Hicks.jpeg",
+        name: "Cameron A. Marshall",
+        role: "Undergraduate researcher · Spring 2026",
+        education: "",
+        topic: "Delft3D modeling and MATLAB post-processing"
+      }
+    ],
+
+    pastTitle: "Past Students",
+    past: [
+      {
+        photo: "images/team/Isabella-Hicks.jpeg",
+        name: "Isabella Hicks",
+        role: "Undergraduate researcher · Fall 2025",
+        education: "",
+        topic: "Coastal delta dynamics and numerical modeling",
+        after: ""
+      },
+      {
+        photo: "images/team/Frank-Bussott.jpeg",
+        name: "Frank Bussott",
+        role: "Undergraduate researcher · Summer 2024, LSU",
+        education: "",
+        topic: 'SURF program (Co-supervised in <a href="https://matthewhiatt.wixsite.com/coastalhydrolsu">Hiatt Lab</a>)',
+        after: "Associate Professional at Team Royal"
+      },
+      {
+        photo: "images/team/Tyria-zanders.jpeg",
+        name: "Tyria M. Zanders",
+        role: "Undergraduate researcher · Summer 2023, LSU",
+        education: "",
+        topic: 'USGS CAST program (Co-supervised in <a href="https://matthewhiatt.wixsite.com/coastalhydrolsu">Hiatt Lab</a>)',
+        after: "Ph.D., North Carolina State University (NCSU)"
+      }
+    ]
+  },
+
+  /* ---------------- PUBLICATIONS ------------------------------------
+     New paper: copy a { } block, paste at the TOP, edit.
      ------------------------------------------------------------------ */
   publications: {
     published: [
@@ -135,181 +413,103 @@ window.SITE = {
         doiURL: "https://doi.org/10.1016/j.csr.2021.104417",
         doiText: "doi:10.1016/j.csr.2021.104417"
       }
-    ],
-    inprepNote: "† mentored undergraduate co-author",
-    inprep: [
-      {
-        authors: "Vundavilli, H., Zanders, T.†, Hiatt, M., Willson, C.",
-        title: "River–floodplain connectivity in the coastal backwater zone influenced by floodplain vegetation configurations"
-      },
-      {
-        authors: "Vundavilli, H., Hiatt, M., Willson, C., Zanders, T.†",
-        title: "The effects of floodplain vegetation on delta morphodynamics"
-      },
-      {
-        authors: "Vundavilli, H., Hiatt, M., Willson, C.",
-        title: "Thin-layer sediment addition to an existing salt marsh to combat sea-level rise and improve endangered species habitat: an idealised modeling study"
-      },
-      {
-        authors: "Vundavilli, H., Bussott, F.†, Hiatt, M., Willson, C.",
-        title: "The effects of sediment grain-size on saltwater intrusion and consequences for sediment transport and deposition in a coastal environment"
-      }
     ]
+
+    // ---- Manuscripts in preparation: hidden for now. To show them
+    // again, remove the // from the lines below and add a comma after
+    // the closing ] of published above.
+    // ,inprepNote: "† mentored undergraduate co-author",
+    // inprep: [
+    //   { authors: "Vundavilli, H., Zanders, T.†, Hiatt, M., Willson, C.",
+    //     title: "River–floodplain connectivity in the coastal backwater zone influenced by floodplain vegetation configurations" },
+    //   { authors: "Vundavilli, H., Hiatt, M., Willson, C., Zanders, T.†",
+    //     title: "The effects of floodplain vegetation on delta morphodynamics" },
+    //   { authors: "Vundavilli, H., Hiatt, M., Willson, C.",
+    //     title: "Thin-layer sediment addition to an existing salt marsh to combat sea-level rise and improve endangered species habitat: an idealised modeling study" },
+    //   { authors: "Vundavilli, H., Bussott, F.†, Hiatt, M., Willson, C.",
+    //     title: "The effects of sediment grain-size on saltwater intrusion and consequences for sediment transport and deposition in a coastal environment" }
+    // ]
   },
 
-  /* ------------------------------------------------------------------
-     TEACHING
-     ------------------------------------------------------------------ */
-  teaching: {
-    groups: [
-      {
-        eyebrow: "Coastal Carolina University",
-        heading: "Courses",
-        blocks: [
-          { sub: "Spring 2026", rows: [
-            { code: "MSCI 445/545", text: "Coastal Processes", note: "" },
-            { code: "ENGR 470", text: "Water Resources Engineering", note: "" }
-          ]},
-          { sub: "Fall 2025", rows: [
-            { code: "MSCI 416/516", text: "Hydrogeology", note: "evaluation 4.78/5" },
-            { code: "MSCI 416L", text: "Hydrogeology Laboratory", note: "evaluation 4.78/5" },
-            { code: "MSCI 304L", text: "Marine Geology Laboratory", note: "evaluation 4.67/5" }
-          ]}
-        ]
-      },
-      {
-        eyebrow: "Previously",
-        heading: "Earlier teaching",
-        blocks: [
-          { sub: "Louisiana State University", rows: [
-            { code: "OCS 2011", text: "Introduction to Coding for Coastal Sciences", note: "co-taught, Fall 2024" },
-            { code: "OCS 4148", text: "Wetland Hydrology and Hydrodynamics", note: "guest lecturer, Spring 2024" }
-          ]},
-          { sub: "University of Waikato (teaching assistant)", rows: [
-            { code: "ERTH 341", text: "Coastal Oceanography", note: "" },
-            { code: "ERTH 241", text: "Coastal Processes and Hydrology", note: "" },
-            { code: "ERTH 104", text: "Introduction to Earth Sciences", note: "" }
-          ]}
-        ]
-      }
-    ],
-    footnote: "Syllabi and materials live on Moodle, or <a href='mailto:vvundavil@coastal.edu'>email me</a> for a copy. Interested in research? Head to <a href='mentorship.html'>Mentorship</a>."
-  },
+  // ================= TEACHING TAB: HIDDEN =========================
+  // The Teaching page is switched off (not in the menu; teaching.html
+  // redirects to the homepage). To bring it back, ask and it takes a
+  // moment to re-enable.
 
-  /* ------------------------------------------------------------------
-     MENTORSHIP / PEOPLE
-     To show a student's photo: upload it to images/people/ on GitHub,
-     then change photo: null  -->  photo: "images/people/filename.jpg"
+  /* ---------------- OUTREACH & UPDATES -------------------------------
+     Newest first. Each item shows as:  Date | Title
+     Add a new item by copying one { } block.
      ------------------------------------------------------------------ */
-  mentorship: {
-    philosophy: "The lab works best as a collaborative, curious place. My job is to help each student become an independent scientist — able to frame a question, build the model or the mooring, analyze the data, and write it up. I tailor projects and professional development to where each person wants to go, whether that's academia, agencies, or industry.",
-    prospective: [
-      {
-        metaTop: "Graduate", metaSub: "M.S. / Ph.D.",
-        text: "I recruit students interested in coastal physical oceanography, delta and estuary dynamics, sediment transport, and numerical modeling. Backgrounds in oceanography, geology, environmental science, engineering, physics, or math are all welcome. Email me a CV, a short statement of research interests, and unofficial transcripts."
-      },
-      {
-        metaTop: "Undergrad", metaSub: "Research",
-        text: "Undergraduates in the lab learn Delft3D modeling, MATLAB/Python data analysis, and coastal fieldwork, with chances to present at conferences. <a href='contact.html'>Reach out</a> to talk projects."
-      }
-    ],
-    people: [
-      {
-        photo: null,
-        name: "Hemanth Vundavilli",
-        role: "Principal Investigator",
-        about: "Coastal oceanography, delta morphodynamics, Delft3D."
-      },
-      {
-        photo: "images/people/abigail-belcher.jpg",
-        name: "Abigail Belcher",
-        role: "Ph.D. student · incoming Fall 2026",
-        about: ""
-      },
-      {
-        photo: null,
-        name: "Jonathon A. Riley",
-        role: "Undergraduate · Spring 2026",
-        about: "Numerical modeling with Delft3D."
-      },
-      {
-        photo: null,
-        name: "Luke Dykema",
-        role: "Undergraduate · Spring 2026",
-        about: "Coding and environmental data analysis."
-      },
-      {
-        photo: null,
-        name: "Cameron A. Marshall",
-        role: "Undergraduate · Spring 2026",
-        about: "Delft3D modeling and MATLAB post-processing."
-      },
-      {
-        photo: null,
-        name: "Isabella Hicks",
-        role: "Undergraduate · Fall 2025",
-        about: "Coastal delta dynamics and numerical modeling."
-      }
-    ],
-    committees: [
-      { k: "M.S.", text: "Hayden Smith", note: "co-chair, with Till Hanebuth" },
-      { k: "M.S.", text: "Elizabeth Li", note: "co-advised with Zhixiong Shen" },
-      { k: "M.S.", text: "Mariia Gorlo", note: "co-advised with Till Hanebuth" }
-    ],
-    pastMentees: [
-      { k: "2024", text: "Frank Bussott", note: "SURF — sediment grain-size and saltwater intrusion" },
-      { k: "2023", text: "Tyria M. Zanders", note: "USGS CAST — river–floodplain connectivity" }
-    ]
-  },
-
-  /* ------------------------------------------------------------------
-     NEWS  (newest first — add new items at the TOP)
-     ------------------------------------------------------------------ */
-  news: [
+  outreach: [
     {
-      date: "2025 · Award",
-      title: "Pritchard Award, Coastal & Estuarine Research Federation",
-      text: "Honored to receive the Pritchard Award from CERF."
+      // TODO: add the two project titles here
+      date: "July 2026",
+      title: "Horry County Higher Education Commission grants",
+      text: "Awarded two HCHEC grants supporting coastal research at CCU — one as Principal Investigator and one as co-Principal Investigator."
     },
     {
-      date: "2025 · Grant",
+      date: "March 2026",
+      title: "Teal and Tech",
+      text: "CoastalTIDES Lab participated in Coastal Carolina University's Teal and Tech recruiting day, engaging 400–500 eighth-grade students in hands-on stream-table experiments exploring sediment transport, river processes, and coastal change."
+    },
+    {
+      date: "December 2025",
       title: "Exploratory grant: Winyah Bay freshwater–saltwater transition",
-      text: "Co-PI on an interdisciplinary project studying the fresh-to-salt transition in Winyah Bay, South Carolina."
+      text: "Awarded as a Co-PI on the interdisciplinary project studying the fresh-to-salt transition in Winyah Bay, South Carolina."
     },
     {
-      date: "Aug 2025 · New chapter",
-      title: "The CoastalTIDES Lab opens at Coastal Carolina University",
-      text: "Started as Assistant Professor of Coastal Oceanography and Systems Science in the Department of Marine Science, Gupta College of Science."
-    },
-    {
-      date: "2025 · Outreach",
+      date: "August 2025",
       title: "Gupta College of Science STEM Day",
-      text: "Demonstrated coastal erosion with a stream table for school students from across Georgetown–Horry County, SC."
+      text: "Demonstrated coastal erosion with a stream table for school students from across Georgetown–Horry County, South Carolina."
     },
     {
-      date: "Dec 2024 · Conference",
-      title: "AGU Fall Meeting, Washington D.C.",
-      text: "Presented on the effects of floodplain vegetation on the hydro-morphodynamics of a river delta system."
-    },
-    {
-      date: "2024 · Publications",
-      title: "Two papers out",
-      text: "On river plume coalescence (<em>Continental Shelf Research</em>) and plume discharge and winds (<em>Estuaries and Coasts</em>) — see <a href='publications.html'>Publications</a>."
+      date: "July 2025",
+      title: "Pritchard Award, Coastal & Estuarine Research Federation (CERF)",
+      text: 'Hemanth Vundavilli received the CERF <a href="https://www.cerf.science/2025-achievement-award-recipients" target="_blank" rel="noopener noreferrer">Pritchard Award</a>, recognizing the best physical oceanography paper published in <em>Estuaries and Coasts</em> between CERF conferences.'
     }
   ],
 
-  /* ------------------------------------------------------------------
-     CONTACT
-     ------------------------------------------------------------------ */
-  contact: {
+  /* ---------------- JOIN US ------------------------------------------ */
+  join: {
+    intro: "The CoastalTIDES Lab provides opportunities for students to investigate coastal processes through numerical modeling, field observations, and analysis of environmental datasets. We welcome students interested in developing research skills while contributing to ongoing coastal science projects.",
+    prospective: [
+      {
+        metaTop: "Graduate",
+        metaSub: "M.S. / Ph.D.",
+        text: "I recruit students interested in coastal physical oceanography, delta and estuary dynamics, sediment transport, and numerical modeling. Backgrounds in oceanography, environmental science, engineering, physics, or math are preferred. Email me a CV, a short statement of research interests, and unofficial transcripts."
+      },
+      {
+        metaTop: "Undergrad",
+        metaSub: "Research",
+        text: "Undergraduates in the lab learn Delft3D modeling, MATLAB/Python data analysis, and coastal fieldwork, with chances to present at conferences. Email me to talk about projects and availability."
+      }
+    ],
+    contactHeading: "Contact",
     rows: [
       { k: "Email", v: "<a href='mailto:vvundavil@coastal.edu'>vvundavil@coastal.edu</a>" },
       { k: "Office", v: "207H Smith Science" },
       { k: "Phone", v: "+1 (843) 349-2860" },
-      { k: "Address", v: "Department of Marine Science, Gupta College of Science,<br>Coastal Carolina University, Conway, South Carolina" },
-      { k: "Scholar", v: "<a href='https://scholar.google.com/citations?user=FMsnJtsAAAAJ&hl=en'>Google Scholar profile</a>" },
-      { k: "Map", v: "<a href='https://www.coastal.edu/map/'>CCU campus map</a>" }
-    ],
-    note: "Prospective students: include a CV and a short note on your research interests — and have a look at <a href='mentorship.html'>Mentorship</a> first."
+      { k: "Address", v: "Department of Marine Science,<br>Coastal Carolina University,<br>Conway, <br>South Carolina" }
+    ]
+  },
+
+  /* ---------------- LAB LIFE (photo gallery) -------------------------
+     The "Lab Life" tab. Photos sit in a tidy grid — order here = order
+     on the page. Comment a line out with // to hide that photo.
+     ------------------------------------------------------------------ */
+  life: {
+    title: "Life in the CoastalTIDES Lab",
+    intro: "Fieldwork, instruments, students, and the occasional new friend — what the work actually looks like.",
+    photos: [
+      { src: "images/join/bird_pic.PNG", caption: "Sharing the shoreline<br>(Gulf of Mexico)" },
+      { src: "images/join/ADCP_deployment.PNG", caption: "ADCP deployment in the Gulf<br>(Gulf of Mexico)" },
+      { src: "images/join/Friends.jpg", caption: "Making friends during fieldwork<br>(Winyah Bay, SC)<br>(Pic credit: Dr. April Abbott)" },
+      { src: "images/join/Stream_table_test.PNG", caption: "Stream table demonstration<br>(GCOS Stem Day, SC)" },
+      { src: "images/join/Mangroves.JPG", caption: "Vundavilli in the middle of a Nature-based solution (NbS)<br>(Firth of Thames, New Zealand)" },
+      { src: "images/join/Water_level_sensor.png", caption: "Installation of water level sensor as part of Colby College collaborative<br>(Allen Island, Maine)" },
+      { src: "images/join/Groundwater_well.PNG", caption: "Groundwater well deployment<br>(Waties Island, SC)" },
+      { src: "images/join/coastal_supervisors.PNG", caption: "Our fieldwork comes with an audience<br>(Gulf of Mexico, USA)" },
+      { src: "images/join/Student_vibracoring.PNG", caption: "MSCI 304L students admiring 1 m long sediment vibracore<br>(Garden City, Myrtle Beach)" },
+    ]
   }
 };
