@@ -341,6 +341,18 @@ window.SITE = {
         topic: "Numerical modeling with Delft3D"
       },
       {
+        // TODO: this is still Isabella's photo — swap in Cameron's
+        photo: "images/team/isabella-hicks.jpeg",
+        name: "Nicole Elder",
+        role: "Undergraduate researcher · Spring 2026",
+        education: "B.S. Coastal Carolina University",
+        topic: "Analysis of Water Quality within Waties Island, SC"
+      }
+    ],
+
+    pastTitle: "Past Students",
+    past: [
+      {
         // TODO: this is still Isabella's photo — swap in Luke's
         photo: "images/team/isabella-hicks.jpeg",
         name: "Luke Dykema",
@@ -356,10 +368,6 @@ window.SITE = {
         education: "",
         topic: "Delft3D modeling and MATLAB post-processing"
       }
-    ],
-
-    pastTitle: "Past Students",
-    past: [
       {
         photo: "images/team/isabella-hicks.jpeg",
         name: "Isabella Hicks",
