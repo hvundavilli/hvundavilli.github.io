@@ -1,5 +1,5 @@
 /* =====================================================================
-   content.js — THE ONLY FILE YOU EVER EDIT (your ".tex" file)
+   content.js 
    =====================================================================
    Everything on the website is written here. The .html shells,
    render.js, worldmap.js and style.css are the "document class".
@@ -71,7 +71,7 @@ window.SITE = {
       { word: "Shorelines" }
     ],
 
-    intro: "The CoastalTIDES Lab — <strong>Transport, Inundation, and Dynamics in Emerging Shorelines</strong> — studies how water and sediment move through the coastal zone, and how deltas, marshes, and estuaries are built, held together, or worn away. We work across numerical modeling, field observations, and remote sensing.",
+    intro: "The CoastalTIDES Lab studies how water and sediment move through the coastal zone, and how deltas, marshes, and estuaries are built, held together, or worn away. Our research interests include coastal oceanography, particularly using numerical and field experiments, the interaction of flows with vegetation, mixing processes, biophysical interactions, and geophysical fluid dynamics.",
     cloudLead: "Our research, in a word cloud",
 
     wordcloud: {
@@ -331,7 +331,7 @@ window.SITE = {
         role: "Ph.D. student · incoming Fall 2026",
         education: "B.S. Elmira College, New York (2026)",
         // TODO: reword once her project is settled
-        topic: "Delta morphodynamics and river–floodplain connectivity"
+        topic: "Nature-based Solutions and transport dynamics"
       },
       {
         photo: "images/team/jonathon-riley.jpeg",
@@ -476,7 +476,7 @@ window.SITE = {
       {
         metaTop: "Graduate",
         metaSub: "M.S. / Ph.D.",
-        text: "I recruit students interested in coastal physical oceanography, delta and estuary dynamics, sediment transport, and numerical modeling. Backgrounds in oceanography, environmental science, engineering, physics, or math are preferred. Email me a CV, a short statement of research interests, and unofficial transcripts."
+        text: "I recruit students interested in coastal physical oceanography, delta and estuary dynamics, sediment transport, and Nature-based Solutions (NbS). Backgrounds in oceanography, environmental science, engineering, physics, or math are preferred. Email me a CV, a short statement of research interests, and unofficial transcripts."
       },
       {
         metaTop: "Undergrad",
@@ -499,7 +499,7 @@ window.SITE = {
      ------------------------------------------------------------------ */
   life: {
     title: "Life in the CoastalTIDES Lab",
-    intro: "Fieldwork, instruments, students, and the occasional new friend — what the work actually looks like.",
+    intro: "Fieldwork, instruments, students, and the occasional new friend... what our work looks like.",
     photos: [
       { src: "images/join/bird_pic.png", caption: "Sharing the shoreline<br>(Gulf of Mexico)" },
       { src: "images/join/adcp_deployment.png", caption: "ADCP deployment in the Gulf<br>(Gulf of Mexico)" },
