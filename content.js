@@ -346,7 +346,7 @@ window.SITE = {
         name: "Nicole Elder",
         role: "Undergraduate researcher · Spring 2026",
         education: "B.S. Coastal Carolina University",
-        topic: "Analysis of Water Quality within Waties Island, SC"
+        topic: "Water Quality analysis within Waties Island, SC"
       }
     ],
 
@@ -484,7 +484,7 @@ window.SITE = {
       {
         metaTop: "Graduate",
         metaSub: "M.S. / Ph.D.",
-        text: "I recruit students interested in coastal physical oceanography, delta and estuary dynamics, sediment transport, and Nature-based Solutions (NbS). Backgrounds in oceanography, environmental science, engineering, physics, or math are preferred. Email me a CV, a short statement of research interests, and unofficial transcripts."
+        text: "I recruit students interested in coastal physical oceanography, coastal engineering, delta and estuary dynamics, sediment transport, and Nature-based Solutions (NbS). Backgrounds in oceanography, engineering, environmental science, physics, or math are preferred. Email me a CV, a short statement of research interests, and unofficial transcripts."
       },
       {
         metaTop: "Undergrad",
