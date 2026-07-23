@@ -367,7 +367,7 @@ window.SITE = {
         role: "Undergraduate researcher · Spring 2026",
         education: "",
         topic: "Delft3D modeling and MATLAB post-processing"
-      }
+      },
       {
         photo: "images/team/isabella-hicks.jpeg",
         name: "Isabella Hicks",
