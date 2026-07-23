@@ -342,7 +342,7 @@ window.SITE = {
       },
       {
         // TODO: this is still Isabella's photo — swap in Cameron's
-        photo: "images/team/isabella-hicks.jpeg",
+        photo: "images/team/nicole-elder.jpeg",
         name: "Nicole Elder",
         role: "Undergraduate researcher · Spring 2026",
         education: "B.S. Coastal Carolina University",
