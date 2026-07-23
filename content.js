@@ -511,7 +511,7 @@ window.SITE = {
     photos: [
       { src: "images/join/bird_pic.png", caption: "Sharing the shoreline<br>(Gulf of Mexico)" },
       { src: "images/join/adcp_deployment.png", caption: "ADCP deployment in the Gulf<br>(Gulf of Mexico)" },
-      { src: "images/join/friends.jpg", caption: "Making friends during fieldwork<br>(Winyah Bay, SC)<br>(Pic credit: Dr. April Abbott)" },
+      { src: "images/join/friends.jpg", caption: "Making friends during fieldwork<br>(Winyah Bay, SC)<br>(Photo credit: <a href='https://aprilabbott.wordpress.com/' target='_blank' rel='noopener noreferrer'>Dr. April Abbott</a>)" },
       { src: "images/join/stream_table_test.png", caption: "Stream table demonstration<br>(GCOS Stem Day, SC)" },
       { src: "images/join/mangroves.jpg", caption: "Vundavilli in the middle of a Nature-based solution (NbS)<br>(Firth of Thames, New Zealand)" },
       { src: "images/join/water_level_sensor.png", caption: "Installation of water level sensor as part of Colby College collaborative<br>(Allen Island, Maine)" },
