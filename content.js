@@ -139,7 +139,7 @@ window.SITE = {
         { t: "mixing", w: 2 },
         { t: "turbulence", w: 2 },
         { t: "hydrology", w: 2 },
-        { t: "nature-based solutions", w: 2 },
+        { t: "Nature-based solutions", w: 2 },
         { t: "coastal resilience", w: 3 },
         { t: "restoration", w: 2 },
         { t: "wetlands", w: 2 },
@@ -217,7 +217,7 @@ window.SITE = {
         //image: null,   // images/research/winyah-bay.jpg
         //funding: "U.S. Army ERDC · LSU, 2023–2025",
         //title: "Engineering practices for ecosystem design (DEEDS)",
-        //text: "Developed a Collaborative Ecosystem Design tool to inform the U.S. Army on enhancing coastal resiliency through nature and nature-based solutions."
+        //text: "Developed a Collaborative Ecosystem Design tool to inform the U.S. Army on enhancing coastal resiliency through Nature and Nature-based solutions."
       //},
       {
         image: "images/research/Buoyant_river_plumes.png",
@@ -257,8 +257,8 @@ window.SITE = {
       {
         place: "United States",
         items: [
-          "Burroughs and Chaplin Center for Marine and Wetland Studies",
-          "Louisiana State University: Civil & Environmental Engineering and  Department of Oceanography & Coastal Sciences",
+          "Burroughs and Chapin Center for Marine and Wetland Studies",
+          "Louisiana State University: Civil & Environmental Engineering and Department of Oceanography & Coastal Sciences",
           "U.S. Army Engineer Research and Development Center (ERDC)",
           "South Carolina Department of Natural Resources"
         ]
@@ -294,8 +294,8 @@ window.SITE = {
      ------------------------------------------------------------------ */
   team: {
     labels: {
-      // education: "Education",
-      education: "", 
+      education: "Education",
+      //education: "", 
       topic: "Research Topic",
       after: "Position post-CoastalTIDES Lab"
     },
