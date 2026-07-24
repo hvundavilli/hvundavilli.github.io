@@ -339,22 +339,22 @@ window.SITE = {
         topic: "Water Quality analysis within Waties Island, SC"
       },
       {
-        photo: "images/team/jonathon-riley.jpeg",
-        name: "Jonathon A. Riley",
-        role: "Undergraduate researcher · Spring 2026",
+        photo: "images/team/isabella-hicks.jpeg",
+        name: "Cameron A. Marshall",
+        role: "Undergraduate researcher · Spring 2026 - current",
         education: "",
-        topic: "Numerical modeling with Delft3D"
+        topic: "Addressing the chronic silting issue in the Belle-Isle Marina"
       }
     ],
 
     pastTitle: "Past Students",
     past: [
       {
-        photo: "images/team/isabella-hicks.jpeg",
-        name: "Cameron A. Marshall",
+        photo: "images/team/jonathon-riley.jpeg",
+        name: "Jonathon A. Riley",
         role: "Undergraduate researcher · Spring 2026",
         education: "",
-        topic: "Delft3D modeling and MATLAB post-processing"
+        topic: "The Influence of External Forcing in a Shallow Carolina Lake System"
       },
       {
         photo: "images/team/isabella-hicks.jpeg",
