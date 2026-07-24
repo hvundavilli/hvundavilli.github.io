@@ -335,7 +335,7 @@ window.SITE = {
       },
       {
         photo: "images/team/nicole-elder.jpeg",
-        name: "Nicole Elder",
+        name: "Nicole E. Elder",
         role: "Undergraduate researcher · Spring 2026 - current",
         education: "B.S. Marine Science, Coastal Carolina University (2026)",
         topic: "Water Quality analysis within Waties Island, SC"
