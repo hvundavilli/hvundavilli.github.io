@@ -1,16 +1,6 @@
 /* =====================================================================
    content.js 
    =====================================================================
-   Everything on the website is written here. The .html shells,
-   render.js, worldmap.js and style.css are the "document class".
-
-   - Text goes inside quotes. List items separated by commas.
-   - Simple HTML allowed: <em>..</em>, <strong>..</strong>,
-     <a href="URL">..</a>, &ndash; for –.
-   - Comments: // like this (the LaTeX % equivalent).
-   - Any field left as "" or null is simply not shown.
-   - After editing: save and refresh (or Commit, once on GitHub).
-
    PHOTOS live in subfolders:
      images/home/      homepage art (optional word-cloud image)
      images/team/      PI portrait + student headshots
@@ -328,10 +318,25 @@ window.SITE = {
       {
         photo: "images/team/abigail_belcher.png",
         name: "Abigail Belcher",
-        role: "Ph.D. student · incoming Fall 2026",
+        role: "Ph.D. student · Summer 2026 - current",
         education: "B.S. Elmira College, New York (2026)",
         // TODO: reword once her project is settled
         topic: "Nature-based Solutions and transport dynamics"
+       },      
+       {
+        // TODO: this is still Isabella's photo — swap in Luke's
+        photo: "images/team/luke-dykema.jpeg",
+        name: "Luke Dykema",
+        role: "Undergraduate researcher · Spring 2026 - current",
+        education: "",
+        topic: "Coastal engineering and environmental data analysis"
+      },
+      {
+        photo: "images/team/nicole-elder.jpeg",
+        name: "Nicole Elder",
+        role: "Undergraduate researcher · Spring 2026 - current",
+        education: "B.S. Coastal Carolina University",
+        topic: "Water Quality analysis within Waties Island, SC"
       },
       {
         photo: "images/team/jonathon-riley.jpeg",
@@ -339,29 +344,12 @@ window.SITE = {
         role: "Undergraduate researcher · Spring 2026",
         education: "",
         topic: "Numerical modeling with Delft3D"
-      },
-      {
-        // TODO: this is still Isabella's photo — swap in Cameron's
-        photo: "images/team/nicole-elder.jpeg",
-        name: "Nicole Elder",
-        role: "Undergraduate researcher · Spring 2026",
-        education: "B.S. Coastal Carolina University",
-        topic: "Water Quality analysis within Waties Island, SC"
       }
     ],
 
     pastTitle: "Past Students",
     past: [
       {
-        // TODO: this is still Isabella's photo — swap in Luke's
-        photo: "images/team/isabella-hicks.jpeg",
-        name: "Luke Dykema",
-        role: "Undergraduate researcher · Spring 2026",
-        education: "",
-        topic: "Coding and environmental data analysis"
-      },
-      {
-        // TODO: this is still Isabella's photo — swap in Cameron's
         photo: "images/team/isabella-hicks.jpeg",
         name: "Cameron A. Marshall",
         role: "Undergraduate researcher · Spring 2026",
