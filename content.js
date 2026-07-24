@@ -295,7 +295,7 @@ window.SITE = {
   team: {
     labels: {
       // education: "Education",
-      education: "" 
+      education: "", 
       topic: "Research Topic",
       after: "Position post-CoastalTIDES Lab"
     },
