@@ -306,7 +306,7 @@ window.SITE = {
       role: "Assistant Professor of Coastal Oceanography and Systems Science",
       dept: "Department of Marine Science, Coastal Carolina University",
       education: "Ph.D. Earth Sciences, University of Waikato, New Zealand (2023) · B.Tech + M.Tech Naval Architecture and Ocean Engineering, IIT Madras (2016)",
-      topic: "Coastal morphodynamics, river deltas, sediment transport, Delft3D modeling",
+      //topic: "Coastal morphodynamics, river deltas, sediment transport, Delft3D modeling",
       links: [
         { label: "Google Scholar", href: "http://scholar.google.com/citations?user=FMsnJtsAAAAJ&hl=en&oi=ao" },
         { label: "vvundavil@coastal.edu", href: "mailto:vvundavil@coastal.edu" }
