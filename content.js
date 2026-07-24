@@ -294,7 +294,8 @@ window.SITE = {
      ------------------------------------------------------------------ */
   team: {
     labels: {
-      education: "Education",
+      // education: "Education",
+      education: "" 
       topic: "Research Topic",
       after: "Position post-CoastalTIDES Lab"
     },
@@ -305,7 +306,8 @@ window.SITE = {
       name: "Hemanth Vundavilli, Ph.D.",
       role: "Assistant Professor of Coastal Oceanography and Systems Science",
       dept: "Department of Marine Science, Coastal Carolina University",
-      education: "Ph.D. Earth Sciences, University of Waikato, New Zealand (2023)<br>B.Tech + M.Tech Naval Architecture and Ocean Engineering, IIT Madras (2016)",
+      //education: "Ph.D. Earth Sciences, University of Waikato, New Zealand (2023)<br>B.Tech + M.Tech Naval Architecture and Ocean Engineering, IIT Madras (2016)",
+      education: "• Ph.D. Earth Sciences, University of Waikato, New Zealand (2023)<br>• B.Tech + M.Tech Naval Architecture and Ocean Engineering, IIT Madras (2016)",
       //topic: "Coastal morphodynamics, river deltas, sediment transport, Delft3D modeling",
       links: [
         { label: "Google Scholar", href: "http://scholar.google.com/citations?user=FMsnJtsAAAAJ&hl=en&oi=ao" },
@@ -319,7 +321,7 @@ window.SITE = {
         photo: "images/team/abigail_belcher.png",
         name: "Abigail Belcher",
         role: "Ph.D. student · Summer 2026 - current",
-        education: "B.S. Elmira College, New York (2026)",
+        education: "• B.S. Elmira College, New York (2026)",
         // TODO: reword once her project is settled
         topic: "Nature-based Solutions and transport dynamics"
        },      
@@ -328,21 +330,21 @@ window.SITE = {
         photo: "images/team/luke-dykema.jpeg",
         name: "Luke Dykema",
         role: "Undergraduate researcher · Spring 2026 - current",
-        education: "",
+        education: "B.S. Marine Science, Coastal Carolina University (current)",
         topic: "Coastal engineering and environmental data analysis"
       },
       {
         photo: "images/team/nicole-elder.jpeg",
         name: "Nicole Elder",
         role: "Undergraduate researcher · Spring 2026 - current",
-        education: "B.S. Coastal Carolina University",
+        education: "B.S. Marine Science, Coastal Carolina University (2026)",
         topic: "Water Quality analysis within Waties Island, SC"
       },
       {
         photo: "images/team/isabella-hicks.jpeg",
         name: "Cameron A. Marshall",
         role: "Undergraduate researcher · Spring 2026 - current",
-        education: "",
+        education: "B.S. Marine Science, Coastal Carolina University (current)",
         topic: "Addressing the chronic silting issue in the Belle-Isle Marina"
       }
     ],
@@ -353,15 +355,15 @@ window.SITE = {
         photo: "images/team/jonathon-riley.jpeg",
         name: "Jonathon A. Riley",
         role: "Undergraduate researcher · Spring 2026",
-        education: "",
+        education: "B.S. Marine Science, Coastal Carolina University (current)",
         topic: "The Influence of External Forcing in a Shallow Carolina Lake System"
       },
       {
         photo: "images/team/isabella-hicks.jpeg",
         name: "Isabella Hicks",
         role: "Undergraduate researcher · Fall 2025",
-        education: "",
-        topic: "Coastal delta dynamics and numerical modeling",
+        education: "B.S. Marine Science, Coastal Carolina University (current)",
+        topic: "Coastal delta dynamics",
         after: ""
       },
       {
@@ -369,7 +371,7 @@ window.SITE = {
         name: "Frank Bussott",
         role: "Undergraduate researcher · Summer 2024, LSU",
         education: "",
-        topic: 'SURF program (Co-supervised in <a href="https://matthewhiatt.wixsite.com/coastalhydrolsu">Hiatt Lab</a>)',
+        topic: 'Gulf Scholars program (Co-supervised in <a href="https://matthewhiatt.wixsite.com/coastalhydrolsu">Hiatt Lab</a>)',
         after: "Associate Professional at Team Royal"
       },
       {
