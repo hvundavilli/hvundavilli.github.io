@@ -242,7 +242,7 @@ window.SITE = {
      ------------------------------------------------------------------ */
   collaborators: {
     title: "Collaborations (Past and Present)",
-    intro: "The CoastalTIDES Lab has been shaped by a research journey across four continents — from the wave basin in Chennai, to the mangrove estuaries of Aotearoa New Zealand, with collaborations across Europe and the Baltic region along the way, before reaching the deltas of the U.S. Gulf and South Atlantic coasts.",
+    intro: "The CoastalTIDES Lab has been shaped by a research journey across four continents — from the wave basin in Madras, to the mangrove estuaries of Aotearoa New Zealand, with collaborations across Europe and the Baltic region along the way, before reaching the deltas of the U.S. Gulf and South Atlantic coasts.",
     sites: [
       { name: "Conway, South Carolina", lat: 33.84, lon: -79.05, side: "r" },
       { name: "Baton Rouge, Louisiana", lat: 30.45, lon: -91.19, side: "l" },
@@ -250,7 +250,7 @@ window.SITE = {
       { name: "Tallinn, Estonia", lat: 59.44, lon: 24.75, side: "r" },
       { name: "Delhi, India", lat: 28.61, lon: 77.21, side: "l" },
       { name: "Hyderabad, India", lat: 17.38, lon: 78.49, side: "l" },
-      { name: "Chennai, India", lat: 13.08, lon: 80.27, side: "r" },
+      { name: "Madras, India", lat: 13.08, lon: 80.27, side: "r" },
       { name: "Hamilton, New Zealand", lat: -37.79, lon: 175.28, side: "l" }
     ],
     groups: [
@@ -274,7 +274,7 @@ window.SITE = {
       {
         place: "India",
         items: [
-          "Indian Institute of Technology Madras, Chennai",
+          "Indian Institute of Technology Madras, Madras",
           "Ministry of Earth Sciences, India"
         ]
       },
