@@ -274,7 +274,7 @@ window.SITE = {
       {
         place: "India",
         items: [
-          "Indian Institute of Technology Madras, Madras",
+          "Indian Institute of Technology, Madras",
           "Ministry of Earth Sciences, India"
         ]
       },
