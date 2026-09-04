@@ -356,14 +356,14 @@ window.SITE = {
       {
         photo: "images/team/nicole-elder.jpeg",
         name: "Nicole E. Elder",
-        role: "Undergraduate researcher · Spring 2026 - current",
+        role: "Undergraduate researcher · Spring 2026",
         education: "B.S. Marine Science, Coastal Carolina University (2026)",
         topic: "Water Quality analysis within Waties Island, SC"
       },
       {
         photo: "images/team/isabella-hicks.jpeg",
         name: "Cameron A. Marshall",
-        role: "Undergraduate researcher · Spring 2026 - current",
+        role: "Undergraduate researcher · Spring 2026",
         education: "B.S. Marine Science, Coastal Carolina University (current)",
         topic: "Addressing the chronic silting issue in the Belle-Isle Marina",
         after: "Geosystems Lab under Dr. Hanebuth" 
