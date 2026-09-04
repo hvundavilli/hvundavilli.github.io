@@ -334,15 +334,25 @@ window.SITE = {
         education: "• B.S. Elmira College, New York (2026)",
         // TODO: reword once her project is settled
         topic: "Nature-based Solutions and transport dynamics"
-       },      
+       }, 
+      {
+        photo: "images/team/jonathon-riley.jpeg",
+        name: "Jonathon A. Riley",
+        role: "Undergraduate researcher · Spring 2026",
+        education: "B.S. Marine Science, Coastal Carolina University (current)",
+        topic: "The Influence of External Forcing in a Shallow Carolina Lake System"
+      },     
        {
-        // TODO: this is still Isabella's photo — swap in Luke's
         photo: "images/team/luke-dykema.jpeg",
         name: "Luke Dykema",
         role: "Undergraduate researcher · Spring 2026 - current",
         education: "B.S. Marine Science, Coastal Carolina University (current)",
         topic: "Coastal engineering and environmental data analysis"
-      },
+      }
+    ],
+
+    pastTitle: "Past Students",
+    past: [
       {
         photo: "images/team/nicole-elder.jpeg",
         name: "Nicole E. Elder",
@@ -355,18 +365,8 @@ window.SITE = {
         name: "Cameron A. Marshall",
         role: "Undergraduate researcher · Spring 2026 - current",
         education: "B.S. Marine Science, Coastal Carolina University (current)",
-        topic: "Addressing the chronic silting issue in the Belle-Isle Marina"
-      }
-    ],
-
-    pastTitle: "Past Students",
-    past: [
-      {
-        photo: "images/team/jonathon-riley.jpeg",
-        name: "Jonathon A. Riley",
-        role: "Undergraduate researcher · Spring 2026",
-        education: "B.S. Marine Science, Coastal Carolina University (current)",
-        topic: "The Influence of External Forcing in a Shallow Carolina Lake System"
+        topic: "Addressing the chronic silting issue in the Belle-Isle Marina",
+        after: "Geosystems Lab under Dr. Hanebuth" 
       },
       {
         photo: "images/team/isabella-hicks.jpeg",
